@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Heat Distribution Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  </head>
+
+  <body>
+    <!-- WELCOME MODAL -->
+    <div id="welcomeModal" class="modal-overlay">
+      <div class="modal-box">
+        <h1>🔥 Welcome 🔥</h1>
+
+        <p>Welcome to the <strong>Heat Distribution Calculator</strong>.</p>
+
+        <button onclick="startApp()">Get Started</button>
+      </div>
+    </div>
+    <div class="header">
+      <h1>🔥 Heat Distribution Calculator</h1>
+      <p>
+        This application solves steady-state heat distribution using Gaussian
+        Elimination Method.
+      </p>
+    </div>
+
+    <div class="container">
+      <!-- NODE VISUALIZATION -->
+      <div class="diagram">
+        <div class="top-values">
+          <span id="topDisplay1">20°</span>
+          <span id="topDisplay2">20°</span>
+        </div>
+
+        <div class="grid">
+          <div class="side left" id="leftDisplay1">10°</div>
+          <div class="node">T1</div>
+          <div class="node">T2</div>
+          <div class="side right" id="rightDisplay1">40°</div>
+
+          <div class="side left" id="leftDisplay2">10°</div>
+          <div class="node">T4</div>
+          <div class="node">T3</div>
+          <div class="side right" id="rightDisplay2">40°</div>
+        </div>
+
+        <div class="bottom-values">
+          <span id="bottomDisplay1">30°</span>
+          <span id="bottomDisplay2">30°</span>
+        </div>
+      </div>
+
+      <!-- INPUT SECTION -->
+      <div class="input-section">
+        <label>Top Boundary</label>
+        <input type="number" id="top" value="20" />
+
+        <label>Bottom Boundary</label>
+        <input type="number" id="bottom" value="30" />
+
+        <label>Left Boundary</label>
+        <input type="number" id="left" value="10" />
+
+        <label>Right Boundary</label>
+        <input type="number" id="right" value="40" />
+
+        <button onclick="calculate()">Calculate</button>
+        <button class="reset-btn" onclick="resetFields()">Reset</button>
+
+        <div class="matrix-section">
+          <h2>Augmented Matrix</h2>
+          <pre id="matrixOutput"></pre>
+        </div>
+      </div>
+
+      <!-- RESULT SECTION -->
+      <div class="results">
+        <div class="results-header">
+          <h2>Results</h2>
+        </div>
+
+        <div class="results-container">
+          <div class="result-card" id="t1Card">
+            <h3>T1</h3>
+            <p id="t1Result">--</p>
+          </div>
+
+          <div class="result-card" id="t2Card">
+            <h3>T2</h3>
+            <p id="t2Result">--</p>
+          </div>
+
+          <div class="result-card" id="t3Card">
+            <h3>T3</h3>
+            <p id="t3Result">--</p>
+          </div>
+
+          <div class="result-card" id="t4Card">
+            <h3>T4</h3>
+            <p id="t4Result">--</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2026 Heat Distribution Solver</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
